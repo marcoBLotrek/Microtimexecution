@@ -23,12 +23,19 @@
 
 function change_admin_footer(){
 
-     $time = microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"];
+    // $time = microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"];
 
 echo ' <div style="Position:fixed;top: 90%;
     left: 100%;
     margin-left: -260px;
-    background-color: white;border:1px solid black;"> Execution Time: '.$time.' seconds</div>';
+    background-color: white;border:1px solid black;"> Execution Time : '.timer_stop().' seconds</div>';
     }
-add_filter('admin_footer_text', 'change_admin_footer');
+add_filter('admin_print_footer_scripts', 'change_admin_footer',100);
+
+/*
+
+function your_function() {
+    echo 'This is inserted at the bottom';
+}
+add_action( 'wp_footer', 'your_function' );*/
 ?>
